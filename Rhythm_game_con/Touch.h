@@ -6,7 +6,6 @@
 class Touch{
   public:
     Touch(int pin);
-    void init();
     void update();
     bool isPressed();
    

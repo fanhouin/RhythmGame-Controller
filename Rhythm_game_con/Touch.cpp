@@ -2,10 +2,6 @@
 
 Touch::Touch(int pin){
     this->pin = pin;
-    init();
-}
-
-void Touch::init(){
     pinMode(pin, INPUT);
     update();
 }

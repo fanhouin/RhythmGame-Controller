@@ -6,7 +6,6 @@
 class Ultrasound{
   public:
     Ultrasound(int echoPin, int trigPin);
-    void init();
     void update();
     int isDetect();
    

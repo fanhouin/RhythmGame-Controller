@@ -1,11 +1,16 @@
 #include "Touch.h"
 #include "Ultrasound.h"
+#include "Motor.h"
+//#include <Servo.h>
+//Servo servo;
 
 Touch touchs[4] = {Touch(4),Touch(5),Touch(6),Touch(7)};
 Ultrasound us[2] = {Ultrasound(2,3),Ultrasound(8,9)};
+Motor motors[2] = {Motor(10),Motor(11)};
 
 void setup() {
   Serial.begin(9600);
+  for(int i = 0; i < 2; i++) motors[i].init();
 }
 
 void loop() {
@@ -31,4 +36,13 @@ void loop() {
     }
   }
   Serial.println();
+  motors[0].update();
+  motors[0].click();
+  motors[1].update();
+  motors[1].click();
+  //angle = map(300, 0, 1023, 0, 180);
+//  delay(50);
+//  myservo.write(15);
+//  delay(50);
+  
 }

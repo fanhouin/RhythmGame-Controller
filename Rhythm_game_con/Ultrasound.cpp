@@ -3,10 +3,6 @@
 Ultrasound::Ultrasound(int echoPin, int trigPin){
   this->echoPin = echoPin;
   this->trigPin = trigPin;
-  init();
-}
-
-void Ultrasound::init(){
   pinMode(echoPin, INPUT);
   pinMode(trigPin, OUTPUT);
   update();
