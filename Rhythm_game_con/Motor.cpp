@@ -12,10 +12,10 @@ void Motor::init(){
 void Motor::update(){
     //Up and down need some time to move,
     //but servo also can click when it has not yet returned to the top
-    if(millis() - lastChangeTime < speed) 
+    if(millis() - lastChangeTime < speed && !CanClick) 
         return;
         
-    if(Up){
+    if(Up && CanClick){
         servo.write(angleDown);
         Up = false;
         CanClick = false;

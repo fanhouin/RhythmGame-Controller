@@ -1,9 +1,13 @@
 import cv2
+import serial
 import numpy as np 
 from PIL import ImageGrab 
 import time
 from pynput.keyboard import Key,Controller
 import pyautogui
+
+ser = serial.Serial('COM3', 9600)
+pyautogui.PAUSE = 0.0001
 
 trackcolor1 = np.uint8([[[43,74,232]]])
 realcolor1 = cv2.cvtColor(trackcolor1,cv2.COLOR_BGR2HSV)
@@ -48,16 +52,20 @@ while(1):
     if(mask_blue.sum() > 1000):
         press_blue = True
 
-    if time.time() - lasttime_blue >= 0.05 and mask_blue.sum():
-        keyboard.press('D')
-        keyboard.release('D')
+    if time.time() - lasttime_blue >= 0.08 and mask_blue.sum():
+        # keyboard.press('D')
+        # keyboard.release('D')
+        pyautogui.press('D')
+        ser.write(b'D\n')
         press_blue = False
         lasttime_blue = time.time()
 
-    if time.time() - lasttime_red >= 0.05 and mask_red.sum():
-        keyboard.press('F')
-        keyboard.release('F')
-        press_red = False
+    if time.time() - lasttime_red >= 0.08 and mask_red.sum():
+        # keyboard.press('F')
+        # keyboard.release('F')
+        pyautogui.press('F')
+        ser.write(b'F\n')
+        press_reF = False
         lasttime_red = time.time()
         
 
@@ -66,4 +74,4 @@ while(1):
     #     break
 
 
-    print(time.time() - this_time)
+    #print(time.time() - this_time)

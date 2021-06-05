@@ -6,7 +6,7 @@ from pynput.keyboard import Key,Controller
 pyautogui.PAUSE = 0.0001
 
 keyboard = Controller()
-ser = serial.Serial('COM5', 9600)
+ser = serial.Serial('COM3', 9600)
 key = ['D','F','J','K','J','K']
 press_state = [0,0,0,0,0,0] #0: release   1:press
 
