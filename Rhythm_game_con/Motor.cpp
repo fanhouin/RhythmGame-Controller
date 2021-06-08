@@ -1,11 +1,14 @@
 #include "Motor.h"
 
-Motor::Motor(int pin){
+Motor::Motor(int pin, int angleUp, int angleDown){
   this->pin = pin;
+  this->angleUp = angleUp;
+  this->angleDown = angleDown;
 }
 
 void Motor::init(){
   servo.attach(pin);
+  servo.write(angleUp);
   update();
 }
 

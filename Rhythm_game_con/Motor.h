@@ -6,7 +6,7 @@
 
 class Motor{
 	public:
-		Motor(int pin);
+		Motor(int pin, int angleUp, int angleDown);
     void init();
 		void update();
 		void click();
@@ -14,9 +14,9 @@ class Motor{
 	private:
 		Servo servo;
 		int pin;
-		int angleUp = 15;
-		int angleDown = 0;
-		int speed = 50;
+		int angleUp; 
+		int angleDown; 
+		int speed = 80;
 		bool Up = true;
 		bool CanClick = false;
 		unsigned long lastChangeTime = 0;
