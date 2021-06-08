@@ -7,7 +7,7 @@
 class Motor{
 	public:
 		Motor(int pin, int angleUp, int angleDown);
-    	void init();
+    void init();
 		void update();
 		void click();
 	
