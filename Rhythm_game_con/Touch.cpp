@@ -16,5 +16,5 @@ void Touch::update(){
 
 bool Touch::isPressed(){
     update();
-    return touch;
+    return state;
 }

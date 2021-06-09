@@ -8,13 +8,12 @@ import pyautogui
 ser = serial.Serial('COM6', 9600)
 pyautogui.PAUSE = 0.0001
 
-keyboard = Controller()
-
 lasttime_red = time.time()
 lasttime_blue = time.time()
 lasttime_yellow = time.time()
 
 while(1):
+    #screen = np.array(ImageGrab.grab(bbox=(500,530,2000,680))) #for demo
     screen = np.array(ImageGrab.grab(bbox=(960,600,980,660)))
     
     thescreen =  cv2.cvtColor(screen,cv2.COLOR_BGR2RGB)
@@ -48,12 +47,12 @@ while(1):
         ser.write(b'K\n')
         lasttime_yellow = time.time()
 
-    #cv2.imshow('window',cv2.cvtColor(screen,cv2.COLOR_BGR2RGB))
-    #cv2.imshow('redframe',mask_red)
-    #cv2.imshow('blueframe',mask_blue)
-    #cv2.imshow('mask_yellow',mask_yellow)
-    #cv2.imshow('maskframe',thescreen)
-    # print(mask_red[15][75])
+    # ------for debug------
+    # cv2.imshow('window',cv2.cvtColor(screen,cv2.COLOR_BGR2RGB))
+    # cv2.imshow('redframe',mask_red)
+    # cv2.imshow('blueframe',mask_blue)
+    # cv2.imshow('yellowframe',mask_yellow)
+    # cv2.imshow('maskframe',thescreen)
     # if(cv2.waitKey(25) & 0xFF == ord('q')):
     #     cv2.destroyAllWindows()
     #     break
