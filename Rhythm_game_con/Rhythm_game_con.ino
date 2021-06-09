@@ -1,6 +1,5 @@
 #include "Touch.h"
 #include "Ultrasound.h"
-#include "Motor.h"
 
 Touch touchs[12] = {Touch(A5),Touch(A4),Touch(A3),Touch(4),Touch(5),Touch(6),
                   Touch(7),Touch(8),Touch(9),Touch(A2),Touch(A1),Touch(A0)};
